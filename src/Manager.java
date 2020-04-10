@@ -6,7 +6,6 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -17,6 +16,8 @@ public class Manager {
     //////Static Field
     //its unique for all states
     private static int GRAPH_NUMBER = 0;
+    //number of colors that we used in project
+    private static int COLORS = 4;
     //Attributes
     private Graph graph;
     //saves all states in this variable
@@ -25,6 +26,7 @@ public class Manager {
     private List<String[]> csv_information;
     //Json file that stores every state and it's neighbours
     JSONObject jsonObject;
+
     //Constructors
     public Manager() {
         this.graph = new Graph();
@@ -41,6 +43,8 @@ public class Manager {
             e.printStackTrace();
         }
         setAllStates();
+        setNeighbours();
+        coloring();
     }
 
     public Manager(int size) {
@@ -48,7 +52,6 @@ public class Manager {
         this.graph = new Graph(size);
         this.states = new ArrayList<>(size);
     }
-
     //Setter and Getters
 
     public Graph getGraph() {
@@ -68,6 +71,43 @@ public class Manager {
     }
 
     //Methods
+
+    /**
+     * 1 --> Blue
+     * 2 --> Green
+     * 3 --> Yellow
+     * 4 --> Red
+     *
+     * @param number_of_color assign a number for any colors that exists in colors enum
+     * @return relative integer to color value
+     */
+    private Colors getColor(Integer number_of_color) {
+        switch (number_of_color) {
+            case 1:
+                return Colors.BLUE;
+            case 2:
+                return Colors.GREEN;
+            case 3:
+                return Colors.YELLOW;
+            case 4:
+                return Colors.RED;
+        }
+        return Colors.WHITE;
+    }
+
+    private Integer getNumberOfColor(Colors colors) {
+        switch (colors) {
+            case RED:
+                return 4;
+            case YELLOW:
+                return 3;
+            case GREEN:
+                return 2;
+            case BLUE:
+                return 1;
+        }
+        return 0;
+    }
 
     private ArrayList<String[]> makeBag(int index) {
         ArrayList<String[]> bag = new ArrayList<>();
@@ -98,22 +138,67 @@ public class Manager {
         this.csv_information = reader.readAll();
     }
 
-    private State findInStates(String title){
-        for (State state: states)
+    private State findInStates(String title) {
+        for (State state : states)
             if (state.getTitle().equals(title)) return state;
         return null;
     }
 
-    public void setNeighbours(){
-        for (State state: this.states){
+    public void setNeighbours() {
+        for (State state : this.states) {
             Integer state_number = state.getGraph_number();
             JSONArray neighbours = (JSONArray) jsonObject.get(state.getTitle());
-            for (Object obj: neighbours){
+            for (Object obj : neighbours) {
                 String neighbour = (String) obj;
                 Integer neighbour_number = Objects.requireNonNull(findInStates(neighbour)).getGraph_number();
                 this.graph.add(state_number, neighbour_number);
+                state.neighbours.add(neighbour_number);
             }
         }
     }
 
+    boolean isSafe(State state, Colors colors) {
+        for (Integer neighbour_number : state.getNeighbours())
+            if (graph.getGraph()[state.getGraph_number()][neighbour_number] == 1
+                    && colors.equals(states.get(neighbour_number).getColors()))
+                return false;
+        return true;
+    }
+
+    boolean graphColoring(State state) {
+        if (state.getGraph_number() == graph.getSize() - 1) return true;
+        for (int c = 1; c <= COLORS; c++) {
+            if (isSafe(state, getColor(c))) {
+                state.setColors(getColor(c));
+                if (graphColoring(states.get(state.getGraph_number() + 1)))
+                    return true;
+                state.setColors(Colors.WHITE);
+            }
+        }
+        return false;
+    }
+
+    boolean coloring() {
+        if (!graphColoring(states.get(0))) {
+            System.out.println("Solution does not exist");
+            return false;
+        }
+//        states.get(30).setColors(Colors.RED);
+        print();
+        return true;
+    }
+
+    void print() {
+
+//        for (State state : states){
+//            if (state.getColors().equals(Colors.WHITE)) System.out.println(state);
+//        }
+
+        for (State state : states) {
+            System.out.print(state + ":(" + state.getColors() + ") -->");
+            for (Integer integer : state.getNeighbours())
+                System.out.print(states.get(integer) + ":(" + states.get(integer).getColors() + ") ");
+            System.out.println();
+        }
+    }
 }
