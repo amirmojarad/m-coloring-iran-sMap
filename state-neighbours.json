@@ -1,0 +1,213 @@
+{
+  "West Azarbaijan": [
+    "Zanjan",
+    "Kordestan",
+    "East Azarbaijan"
+  ],
+  "East Azarbaijan": [
+    "Zanjan",
+    "West Azarbaijan",
+    "Ardebil"
+  ],
+  "Ardebil": [
+    "Gilan",
+    "East Azarbaijan",
+    "Zanjan"
+  ],
+  "Gilan": [
+    "Mazandaran",
+    "Zanjan",
+    "Qazvin",
+    "Ardebil"
+  ],
+  "Zanjan": [
+    "Gilan",
+    "Ardebil",
+    "East Azarbaijan",
+    "West Azarbaijan",
+    "Kordestan",
+    "Hamadan",
+    "Qazvin"
+  ],
+  "Kordestan": [
+    "Kermanshah",
+    "Zanjan",
+    "Hamadan",
+    "Ardebil",
+    "East Azarbaijan"
+  ],
+  "Hamadan": [
+    "Kordestan",
+    "Kermanshah",
+    "Markazi",
+    "Lorestan",
+    "Qazvin",
+    "Zanjan"
+  ],
+  "Kermanshah": [
+    "Ilam",
+    "Kordestan",
+    "Lorestan",
+    "Hamadan"
+  ],
+  "Ilam": [
+    "Kermanshah",
+    "Khuzestan",
+    "Lorestan"
+  ],
+  "Khuzestan": [
+    "Esfahan",
+    "Kohgiluyeh and Buyer Ahmad",
+    "Bushehr",
+    "Chahar Mahall and Bakhtiari",
+    "Lorestan",
+    "Ilam"
+  ],
+  "Esfahan": [
+    "Markazi",
+    "Chahar Mahall and Bakhtiari",
+    "Qom",
+    "Semnan",
+    "Yazd",
+    "Fars",
+    "Kohgiluyeh and Buyer Ahmad",
+    "Khuzestan",
+    "Lorestan"
+  ],
+  "Fars": [
+    "Esfahan",
+    "Bushehr",
+    "Hormozgan",
+    "Kerman",
+    "Kohgiluyeh and Buyer Ahmad",
+    "Yazd"
+  ],
+  "Kerman": [
+    "Fars",
+    "Yazd",
+    "Sistan and Baluchestan",
+    "Hormozgan",
+    "South Khorasan"
+  ],
+  "Sistan and Baluchestan": [
+    "Kerman",
+    "Hormozgan",
+    "South Khorasan"
+  ],
+  "South Khorasan": [
+    "Razavi Khorasan",
+    "Kerman",
+    "Sistan and Baluchestan",
+    "Yazd"
+  ],
+  "Razavi Khorasan": [
+    "South Khorasan",
+    "North Khorasan",
+    "Semnan",
+    "Yazd"
+  ],
+  "North Khorasan": [
+    "Golestan",
+    "Semnan",
+    "Razavi Khorasan"
+  ],
+  "Golestan": [
+    "North Khorasan",
+    "Mazandaran",
+    "Semnan"
+  ],
+  "Mazandaran": [
+    "Semnan",
+    "Tehran",
+    "Gilan",
+    "Golestan",
+    "Alborz",
+    "Qazvin"
+  ],
+  "Qazvin": [
+    "Zanjan",
+    "Alborz",
+    "Mazandaran",
+    "Gilan",
+    "Hamadan",
+    "Markazi"
+  ],
+  "Alborz": [
+    "Qazvin",
+    "Tehran",
+    "Mazandaran",
+    "Markazi"
+  ],
+  "Tehran": [
+    "Semnan",
+    "Qom",
+    "Markazi",
+    "Alborz",
+    "Mazandaran"
+  ],
+  "Semnan": [
+    "Esfahan",
+    "Qom",
+    "Tehran",
+    "Mazandaran",
+    "Golestan",
+    "North Khorasan",
+    "Razavi Khorasan",
+    "Yazd"
+  ],
+  "Yazd": [
+    "Esfahan",
+    "Razavi Khorasan",
+    "Fars",
+    "Kerman",
+    "Semnan",
+    "South Khorasan"
+  ],
+  "Bushehr": [
+    "Kohgiluyeh and Buyer Ahmad",
+    "Fars",
+    "Khuzestan",
+    "Hormozgan"
+  ],
+  "Hormozgan": [
+    "Fars",
+    "Bushehr",
+    "Sistan and Baluchestan",
+    "Kerman"
+  ],
+  "Kohgiluyeh and Buyer Ahmad": [
+    "Chahar Mahall and Bakhtiari",
+    "Khuzestan",
+    "Bushehr",
+    "Esfahan",
+    "Fars"
+  ],
+  "Chahar Mahall and Bakhtiari": [
+    "Khuzestan",
+    "Esfahan",
+    "Kohgiluyeh and Buyer Ahmad"
+  ],
+  "Qom": [
+    "Semnan",
+    "Tehran",
+    "Markazi",
+    "Esfahan"
+  ],
+  "Markazi": [
+    "Lorestan",
+    "Tehran",
+    "Qom",
+    "Hamadan",
+    "Qazvin",
+    "Alborz",
+    "Esfahan"
+  ],
+    "Lorestan": [
+      "Ilam",
+      "Khuzestan",
+      "Esfahan",
+      "Kermanshah",
+      "Hamadan",
+      "Markazi"
+    ]
+}
