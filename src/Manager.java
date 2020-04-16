@@ -1,6 +1,8 @@
 import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderBuilder;
 import com.opencsv.exceptions.CsvException;
+import javafx.concurrent.Task;
+import javafx.scene.layout.Pane;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -21,14 +23,17 @@ public class Manager {
     //Attributes
     private Graph graph;
     //saves all states in this variable
-    private ArrayList<State> states;
+    private ArrayList<IranStates> states;
     //saves all data's that include in "iran.svg" file
     private List<String[]> csv_information;
     //Json file that stores every state and it's neighbours
     JSONObject jsonObject;
+    /////////////////////
+    Pane pane;
 
     //Constructors
     public Manager() {
+        this.pane = new Pane();
         this.graph = new Graph();
         this.states = new ArrayList<>(this.graph.getSize());
         try {
@@ -44,13 +49,6 @@ public class Manager {
         }
         setAllStates();
         setNeighbours();
-        coloring();
-    }
-
-    public Manager(int size) {
-        this();
-        this.graph = new Graph(size);
-        this.states = new ArrayList<>(size);
     }
     //Setter and Getters
 
@@ -58,57 +56,17 @@ public class Manager {
         return graph;
     }
 
-    public void setGraph(Graph graph) {
-        this.graph = graph;
-    }
-
-    public ArrayList<State> getStates() {
+    public ArrayList<IranStates> getStates() {
         return states;
     }
 
-    public void setStates(ArrayList<State> states) {
-        this.states = states;
-    }
-
-    //Methods
-
     /**
-     * 1 --> Blue
-     * 2 --> Green
-     * 3 --> Yellow
-     * 4 --> Red
+     * step through among csv_information and stores all information that stores in i, i+1,i+2,i+3
      *
-     * @param number_of_color assign a number for any colors that exists in colors enum
-     * @return relative integer to color value
+     * @param index
+     * @return
      */
-    private Colors getColor(Integer number_of_color) {
-        switch (number_of_color) {
-            case 1:
-                return Colors.BLUE;
-            case 2:
-                return Colors.GREEN;
-            case 3:
-                return Colors.YELLOW;
-            case 4:
-                return Colors.RED;
-        }
-        return Colors.WHITE;
-    }
-
-    private Integer getNumberOfColor(Colors colors) {
-        switch (colors) {
-            case RED:
-                return 4;
-            case YELLOW:
-                return 3;
-            case GREEN:
-                return 2;
-            case BLUE:
-                return 1;
-        }
-        return 0;
-    }
-
+    //Methods
     private ArrayList<String[]> makeBag(int index) {
         ArrayList<String[]> bag = new ArrayList<>();
         for (int i = index; i < index + 4; i++)
@@ -116,20 +74,55 @@ public class Manager {
         return bag;
     }
 
+    /**
+     * just for better code! :)
+     *
+     * @param string
+     * @return
+     */
     private String splitter(String string) {
         return string.split("\"")[1];
     }
+
+    /**
+     * uses in setAllStates method
+     * for find that point coordinate starts
+     *
+     * @param str
+     * @return
+     */
+
+    private int subString(String str) {
+        int counter = 0;
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(i) != 'm') counter++;
+            else return counter;
+        }
+        return counter;
+    }
+
+    /**
+     * step through among csv_information and create a information bag
+     * every bag contains a state information like title name and id and coordinate
+     */
 
     private void setAllStates() {
         for (int i = 0; i < csv_information.size() - 4; i += 4) {
             ArrayList<String[]> bag = makeBag(i);
             String title = splitter(bag.get(2)[0]);
             String id = splitter(bag.get(3)[0]);
-            State state = new State(GRAPH_NUMBER++, title, id);
+            String svgCoordinate = bag.get(1)[0].substring(subString(bag.get(1)[0]));
+            IranStates state = new IranStates(GRAPH_NUMBER++, title, id, svgCoordinate);
             this.states.add(state);
         }
     }
 
+    /**
+     * read all infos in svg file and stores in csv_information
+     *
+     * @throws IOException
+     * @throws CsvException
+     */
     private void initialize() throws IOException, CsvException {
         String SVG_PATH = "E:\\University Courses\\Term 4\\Algorithms\\Assigns\\05 - MiniProject02\\iran.svg";
         FileReader file = new FileReader(SVG_PATH);
@@ -138,67 +131,51 @@ public class Manager {
         this.csv_information = reader.readAll();
     }
 
-    private State findInStates(String title) {
-        for (State state : states)
+    /**
+     * @param title find a state in states containers with title attribute
+     * @return state that has "title"
+     */
+
+    private IranStates findInStates(String title) {
+        for (IranStates state : states)
             if (state.getTitle().equals(title)) return state;
         return null;
     }
 
+    /**
+     *
+     */
     public void setNeighbours() {
-        for (State state : this.states) {
+        for (IranStates state : this.states) {
             Integer state_number = state.getGraph_number();
             JSONArray neighbours = (JSONArray) jsonObject.get(state.getTitle());
             for (Object obj : neighbours) {
                 String neighbour = (String) obj;
                 Integer neighbour_number = Objects.requireNonNull(findInStates(neighbour)).getGraph_number();
                 this.graph.add(state_number, neighbour_number);
-                state.neighbours.add(neighbour_number);
+                state.getNeighbours().add(neighbour_number);
             }
         }
     }
 
-    boolean isSafe(State state, Colors colors) {
-        for (Integer neighbour_number : state.getNeighbours())
-            if (graph.getGraph()[state.getGraph_number()][neighbour_number] == 1
-                    && colors.equals(states.get(neighbour_number).getColors()))
-                return false;
-        return true;
+    /**
+     * back all of state's colors to white for reuse
+     */
+    public void setDefaultState() {
+        for (IranStates state : states) state.backToDefault();
     }
 
-    boolean graphColoring(State state) {
-        if (state.getGraph_number() == graph.getSize() - 1) return true;
-        for (int c = 1; c <= COLORS; c++) {
-            if (isSafe(state, getColor(c))) {
-                state.setColors(getColor(c));
-                if (graphColoring(states.get(state.getGraph_number() + 1)))
-                    return true;
-                state.setColors(Colors.WHITE);
-            }
+    /**
+     * create and store all states in pane
+     *
+     * @return a pane that contains all states
+     */
+    public Pane getMap() {
+        for (int i = 0; i < states.size(); i++) {
+            pane.getChildren().add(states.get(i).getSVG());
         }
-        return false;
+        return pane;
     }
 
-    boolean coloring() {
-        if (!graphColoring(states.get(0))) {
-            System.out.println("Solution does not exist");
-            return false;
-        }
-//        states.get(30).setColors(Colors.RED);
-        print();
-        return true;
-    }
 
-    void print() {
-
-//        for (State state : states){
-//            if (state.getColors().equals(Colors.WHITE)) System.out.println(state);
-//        }
-
-        for (State state : states) {
-            System.out.print(state + ":(" + state.getColors() + ") -->");
-            for (Integer integer : state.getNeighbours())
-                System.out.print(states.get(integer) + ":(" + states.get(integer).getColors() + ") ");
-            System.out.println();
-        }
-    }
 }

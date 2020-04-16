@@ -2,23 +2,33 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4e520086-9f8c-4d6d-aff6-e14e33797310" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/05 - MiniProject02/Colors.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/05 - MiniProject02/Colors.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iran.svg" beforeDir="false" afterPath="$PROJECT_DIR$/iran.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/05 - MiniProject02/Graph.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/05 - MiniProject02/Graph.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/05 - MiniProject02/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/05 - MiniProject02/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/05 - MiniProject02/Manager$1.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/05 - MiniProject02/Manager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/05 - MiniProject02/Manager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/05 - MiniProject02/State.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/05 - MiniProject02/State.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/05 - MiniProject02/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/05 - MiniProject02/Test.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Colors.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Colors.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/05 - MiniProject02/State.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/05 - MiniProject02/Test$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/05 - MiniProject02/Test.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Graph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Manager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/State.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/State.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/State.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/IranStates.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Test.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/مینی پروژه دوم - رنگ آمیزی نقشه ایران.pdf" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageViewManager">
+    <option name="myElementSize" value="175" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="05 - MiniProject02" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -57,7 +67,14 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Test">
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="05 - MiniProject02" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Test" />
       <module name="05 - MiniProject02" />
@@ -74,10 +91,14 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.Test" />
         <item itemvalue="Application.mColoringProblem" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="StructureViewFactory">
+    <option name="ACTIVE_ACTIONS" value=",SHOW_PROPERTIES" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -91,7 +112,11 @@
       <updated>1586371508218</updated>
       <workItem from="1586371519202" duration="1956000" />
       <workItem from="1586400736509" duration="578000" />
-      <workItem from="1586500893064" duration="27881000" />
+      <workItem from="1586500893064" duration="28061000" />
+      <workItem from="1586586991737" duration="8268000" />
+      <workItem from="1586841620527" duration="11403000" />
+      <workItem from="1586859000614" duration="127000" />
+      <workItem from="1586926774156" duration="12259000" />
     </task>
     <servers />
   </component>
@@ -103,7 +128,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
@@ -118,14 +145,15 @@
           <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Manager.java</url>
-          <line>192</line>
-          <option name="timeStamp" value="19" />
+          <url>file://$PROJECT_DIR$/src/Main.java</url>
+          <line>53</line>
+          <option name="timeStamp" value="18" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/05___MiniProject02$Test.ic" NAME="Test Coverage Results" MODIFIED="1586531765898" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/05___MiniProject02$Test.ic" NAME="Test Coverage Results" MODIFIED="1586858794639" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/05___MiniProject02$Main.ic" NAME="Main Coverage Results" MODIFIED="1586944500667" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
