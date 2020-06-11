@@ -3,20 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="4e520086-9f8c-4d6d-aff6-e14e33797310" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iran.svg" beforeDir="false" afterPath="$PROJECT_DIR$/iran.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/05 - MiniProject02/Graph.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/05 - MiniProject02/Graph.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/05 - MiniProject02/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/05 - MiniProject02/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/05 - MiniProject02/Manager$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/05 - MiniProject02/Manager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/05 - MiniProject02/Manager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/05 - MiniProject02/State.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/05 - MiniProject02/Test$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/05 - MiniProject02/Test.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Graph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/05 - MiniProject02/ColoringWorker$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/05 - MiniProject02/ColoringWorker$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/05 - MiniProject02/ColoringWorker.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/05 - MiniProject02/ColoringWorker.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/05 - MiniProject02/META-INF/05 - MiniProject02.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/05 - MiniProject02/mColoringProblem.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ColoringWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ColoringWorker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Manager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/State.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/IranStates.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Test.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/مینی پروژه دوم - رنگ آمیزی نقشه ایران.pdf" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -117,6 +109,10 @@
       <workItem from="1586841620527" duration="11403000" />
       <workItem from="1586859000614" duration="127000" />
       <workItem from="1586926774156" duration="12259000" />
+      <workItem from="1587025456623" duration="531000" />
+      <workItem from="1587027966725" duration="1791000" />
+      <workItem from="1591799208361" duration="2589000" />
+      <workItem from="1591861522150" duration="1028000" />
     </task>
     <servers />
   </component>
@@ -139,11 +135,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/mColoringProblem.java</url>
-          <line>109</line>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Main.java</url>
           <line>53</line>

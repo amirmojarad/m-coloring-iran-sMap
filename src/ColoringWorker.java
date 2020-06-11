@@ -77,8 +77,6 @@ public class ColoringWorker extends Task {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-
-                int finalC = c;
                 Platform.runLater(new Runnable() {
                     @Override
                     public void run() {
